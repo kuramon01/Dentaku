@@ -20,36 +20,24 @@ function clickbutton(button) {
     } else if (get_value == "=") {
       result.innerHTML = eval(result.innerHTML)  //液晶表示の内容を代入
 
-    // } else if (get_value === "+" && result.innerHTML.slice(-1) === "+") {
     } else if (operator.includes(get_value) == true && result.innerHTML.slice(-1) == "+") {
-        result.innerHTML.slice(0,-1);
+      const f = result.innerHTML.slice(0,-1);   //ここだけでは最後の文字を削除したまま
+      result.innerHTML = f + get_value;         //削除した値に入力値を追加して再代入
     } else if (operator.includes(get_value) == true && result.innerHTML.slice(-1) == "-") {
-        result.innerHTML.slice(0,-1);
+      const f = result.innerHTML.slice(0,-1);
+      result.innerHTML = f + get_value;
     } else if (operator.includes(get_value) == true && result.innerHTML.slice(-1) == "*") {
-        result.innerHTML.slice(0,-1);
+      const f = result.innerHTML.slice(0,-1);
+      result.innerHTML = f + get_value;
     } else if (operator.includes(get_value) == true && result.innerHTML.slice(-1) == "/") {
-        result.innerHTML.slice(0,-1);
+      const f = result.innerHTML.slice(0,-1);
+      result.innerHTML = f + get_value;
       
-      
-      } else {
-          if (result.innerHTML == "0") {
-            result.innerHTML = get_value    //「0」の時はそのまま値を代入
-          } else {
-            result.innerHTML += get_value   // その他の場合は「0」に押した数字を足して代入 
-          }
-      }
-    
-      
+    } else {
+        if (result.innerHTML == "0") {
+          result.innerHTML = get_value    //「0」の時はそのまま値を代入
+        } else {
+          result.innerHTML += get_value   // その他の場合は「0」に押した数字を足して代入 
+        }
     }
-
-
-    // } else if (get_value == operator.includes(get_value)) {
-    //   if (result.innerHTML.slice(-1) == operator.includes(get_value)) {
-    //     result.innerHTML.slice(0,-1);
-    //   }
-      
-
-
-
-
-
+  }
